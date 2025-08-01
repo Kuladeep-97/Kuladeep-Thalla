@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kuladeep Thalla | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #f9fafc, #eef1f5); /* ✅ Soft gradient */
-      scroll-behavior: smooth;
-      color: #333;
+      background: #fff;
+      scroll-behavior: smooth; /* ✅ Enables smooth scrolling */
     }
 
-    /* ✅ Navbar */
+    /* ✅ Sticky Navbar */
     .navbar {
       position: sticky;
       top: 0;
@@ -32,68 +30,57 @@
       transition: color 0.3s ease;
     }
     .navbar-nav .nav-link:hover {
-      color: #ff4081;
+      color: #ff4081; /* ✅ Pink hover effect */
     }
 
-    /* ✅ Section Styling */
-    section {
-      padding: 60px 20px;
+    /* About Section */
+    .about-section {
+      text-align: center;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
     }
-    #about {
-      background: #ffffff;
-    }
-    #projects {
-      background: #f7f9fc;
-    }
-    #skills {
-      background: #ffffff;
-    }
-    #contact {
-      background: #222;
-      color: white;
-    }
-
-    /* ✅ Section Titles */
-    h1 {
+    .about-section h1 {
       font-size: 3rem;
       font-weight: bold;
       margin-bottom: 30px;
     }
-
-    /* ✅ About Section */
-    .about-section {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-    }
     .about-img {
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ff4081;
+      object-fit: contain;
+      background: #eee;
+      padding: 5px;
       margin-bottom: 20px;
-      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
     }
     .about-text {
       color: #555;
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.6;
       margin-bottom: 15px;
     }
 
-    /* ✅ Project Cards */
+    /* Projects Section */
+    .projects-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .projects-section h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
     .project-card {
       border: none;
       border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 15px;
-      background: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #f8f9fa;
+      transition: transform 0.3s ease-in-out;
     }
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
     .project-card img {
       width: 100%;
@@ -105,7 +92,6 @@
       font-weight: bold;
       margin-top: 15px;
       font-size: 1.2rem;
-      color: #222;
     }
     .project-text {
       color: #555;
@@ -114,7 +100,7 @@
     }
     .project-links a {
       text-decoration: none;
-      color: #ff4081;
+      color: #000;
       font-weight: bold;
       margin: 0 5px;
     }
@@ -122,12 +108,7 @@
       text-decoration: underline;
     }
 
-    /* ✅ Skills Cards (same as project style) */
-    .skills-section .project-card {
-      background: #fff;
-    }
-
-    /* ✅ Social Buttons */
+    /* Social Icons */
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -136,7 +117,7 @@
       height: 60px;
       background: #ff4081;
       border-radius: 50%;
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease;
     }
     .social-btn img {
       width: 30px;
@@ -144,14 +125,13 @@
     }
     .social-btn:hover {
       transform: scale(1.1);
-      background: #e63b76;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Navbar -->
+  <!-- ✅ Sticky Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#home">Kuladeep Thalla Portfolio</a>
@@ -170,7 +150,7 @@
     </div>
   </nav>
 
-  <!-- ✅ Dummy Home Section -->
+  <!-- ✅ Dummy Home Section (for scrolling) -->
   <section id="home" style="height: 80px;"></section>
 
   <!-- ✅ About Section -->
@@ -197,15 +177,19 @@
     <h1>Projects</h1>
     <div class="container">
       <div class="row g-4">
-        <!-- ✅ Your project cards remain unchanged (keep your existing content here) -->
+        
         <!-- OSM CDC -->
         <div class="col-md-3">
           <div class="card project-card">
             <img src="osm.png" alt="OSM CDC Pipeline">
             <div class="card-body">
               <h5 class="project-title">OSM Change Data Capture Pipeline</h5>
-              <p class="project-text">Built a production-level pipeline to capture and process OpenStreetMap change data using PySpark, Delta Lake, PostgreSQL, and Airflow.</p>
-              <p class="project-links"><a href="https://github.com/Kuladeep-97/projects-osm-cdc-bangalore">Code</a></p>
+              <p class="project-text">
+                Built a production-level pipeline to capture and process OpenStreetMap change data using PySpark, Delta Lake, PostgreSQL, and Airflow.
+              </p>
+              <p class="project-links">
+                <a href="https://github.com/Kuladeep-97/projects-osm-cdc-bangalore">Code</a>
+              </p>
             </div>
           </div>
         </div>
@@ -216,8 +200,12 @@
             <img src="ETL.png" alt="HomeLLC ETL">
             <div class="card-body">
               <h5 class="project-title">Property Data Normalization ETL</h5>
-              <p class="project-text">Developed a Python ETL pipeline to clean and normalize property datasets into a structured MySQL schema with optimized SQL and documentation.</p>
-              <p class="project-links"><a href="https://github.com/Kuladeep-97/homellc_data_engineer_assessment_skeleton">Code</a></p>
+              <p class="project-text">
+                Developed a Python ETL pipeline to clean and normalize property datasets into a structured MySQL schema with optimized SQL and documentation.
+              </p>
+              <p class="project-links">
+               <a href="https://github.com/Kuladeep-97/homellc_data_engineer_assessment_skeleton">Code</a>
+              </p>
             </div>
           </div>
         </div>
@@ -225,11 +213,15 @@
         <!-- Power BI -->
         <div class="col-md-3">
           <div class="card project-card">
-            <img src="POWERBI.png" alt="Power BI Dashboard">
+            <img src="POWERBI.png"alt="Power BI Dashboard">
             <div class="card-body">
               <h5 class="project-title">Interactive Power BI Dashboard</h5>
-              <p class="project-text">Designed an interactive Power BI dashboard showcasing KPIs with dynamic filters, drill-down analytics, and visual storytelling.</p>
-              <p class="project-links"><a href="https://app.powerbi.com/groups/me/reports/93fff918-2280-4efc-bdb2-2c6b4e551d9f/d585232288848a73f5bc?experience=power-bi">Report</a></p>
+              <p class="project-text">
+                Designed an interactive Power BI dashboard showcasing KPIs with dynamic filters, drill-down analytics, and visual storytelling.
+              </p>
+              <p class="project-links">
+                <a href="https://app.powerbi.com/groups/me/reports/93fff918-2280-4efc-bdb2-2c6b4e551d9f/d585232288848a73f5bc?experience=power-bi">Report</a>
+              </p>
             </div>
           </div>
         </div>
@@ -237,52 +229,162 @@
         <!-- Meta Kaggle -->
         <div class="col-md-3">
           <div class="card project-card">
-            <img src="Hack.png" alt="Meta Kaggle Hackathon">
+            <img src="Hack.png"alt="Meta Kaggle Hackathon">
             <div class="card-body">
               <h5 class="project-title">Meta Kaggle Hackathon 2025</h5>
-              <p class="project-text">Built an end-to-end analytics & ML pipeline with EDA, feature engineering, and model comparisons, delivering reproducible insights for KPIs.</p>
-              <p class="project-links"><a href="https://www.kaggle.com/competitions/meta-kaggle-hackathon/writeups/extracting-insights-from-kaggle-metadata">Blog</a> | <a href="https://www.kaggle.com/code/kuladeepthalla/meta-kaggle-hackathon-kuladeep-thalla">Code</a></p>
+              <p class="project-text">
+                Built an end-to-end analytics & ML pipeline with EDA, feature engineering, and model comparisons, delivering reproducible insights for KPIs.
+              </p>
+              <p class="project-links">
+                <a href="https://www.kaggle.com/competitions/meta-kaggle-hackathon/writeups/extracting-insights-from-kaggle-metadata">Blog</a>|<a href="https://www.kaggle.com/code/kuladeepthalla/meta-kaggle-hackathon-kuladeep-thalla">Code</a>
+              </p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
-
   <!-- ✅ Skills Section -->
-  <section id="skills" class="projects-section">
-    <h1>Skills</h1>
-    <div class="container">
-      <div class="row g-4">
-        <!-- Skills Cards (reuse your existing content) -->
-        <div class="col-md-3"><div class="card project-card"><img src="Data engineer.png" alt="Data Engineering"><div class="card-body"><h5 class="project-title">Data Engineering</h5><p class="project-text">Experienced in building ETL pipelines, working with Delta Lake, PostgreSQL, MySQL, and orchestrating workflows using Apache Airflow.</p></div></div></div>
-        <div class="col-md-3"><div class="card project-card"><img src="Python.png" alt="Python & SQL"><div class="card-body"><h5 class="project-title">Python & SQL</h5><p class="project-text">Strong programming skills in Python for data analytics, automation, and machine learning. Proficient in SQL for database management.</p></div></div></div>
-        <div class="col-md-3"><div class="card project-card"><img src="Visual.png" alt="Data Visualization"><div class="card-body"><h5 class="project-title">Data Visualization</h5><p class="project-text">Expertise in building interactive dashboards using Power BI, delivering actionable insights through visual storytelling and KPIs.</p></div></div></div>
-        <div class="col-md-3"><div class="card project-card"><img src="Cloud.png" alt="Cloud & Tools"><div class="card-body"><h5 class="project-title">Cloud & Tools</h5><p class="project-text">Familiar with AWS (S3, EC2, RDS), Docker, and version control with Git. Exploring emerging cloud technologies and modern data stacks.</p></div></div></div>
+<section id="skills" class="projects-section">
+  <h1>Skills</h1>
+  <div class="container">
+    <div class="row g-4">
+      
+      <!-- Skill 1: Data Engineering -->
+      <div class="col-md-3">
+        <div class="card project-card">
+          <img src="Data engineer.png" alt="Data Engineering">
+          <div class="card-body">
+            <h5 class="project-title">Data Engineering</h5>
+            <p class="project-text">
+              Experienced in building ETL pipelines, working with Delta Lake, PostgreSQL, MySQL, and orchestrating workflows using Apache Airflow.
+            </p>
+          </div>
+        </div>
       </div>
+
+      <!-- Skill 2: Programming -->
+      <div class="col-md-3">
+        <div class="card project-card">
+          <img src="Python.png" alt="Python & SQL">
+          <div class="card-body">
+            <h5 class="project-title">Python & SQL</h5>
+            <p class="project-text">
+              Strong programming skills in Python for data analytics, automation, and machine learning. Proficient in SQL for database management.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill 3: Data Visualization -->
+      <div class="col-md-3">
+        <div class="card project-card">
+          <img src="Visual.png" alt="Data Visualization">
+          <div class="card-body">
+            <h5 class="project-title">Data Visualization</h5>
+            <p class="project-text">
+              Expertise in building interactive dashboards using Power BI, delivering actionable insights through visual storytelling and KPIs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill 4: Cloud & Tools -->
+      <div class="col-md-3">
+        <div class="card project-card">
+          <img src="Cloud.png"alt="Cloud & Tools">
+          <div class="card-body">
+            <h5 class="project-title">Cloud & Tools</h5>
+            <p class="project-text">
+              Familiar with AWS (S3, EC2, RDS), Docker, and version control with Git. Exploring emerging cloud technologies and modern data stacks.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
-
-  <!-- ✅ Contact Section -->
-  <section id="contact" class="text-center py-5">
-    <div class="container">
-      <h1 class="mb-4">Contact Me</h1>
-      <div class="row justify-content-center mb-4">
-        <div class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0"><img src="https://img.icons8.com/ios-filled/30/ffffff/new-post.png" alt="Email Icon" class="me-2"><span style="font-size: 1.2rem;">k.thalla@se23.qmul.ac.uk</span></div>
-        <div class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0" style="white-space: nowrap;"><img src="https://img.icons8.com/ios-filled/30/ffffff/phone.png" alt="Phone Icon" class="me-2"><span style="font-size: 1.2rem;">+44-7721826968 | +91-8971492482</span></div>
+  </div>
+</section>
+<!-- ✅ Contact Me Section -->
+<section id="contact" class="text-center py-5" style="background: #222; color: white;">
+  <div class="container">
+    <!-- Heading -->
+    <h1 class="mb-4">Contact Me</h1>
+    
+    <!-- Contact Info (Email & Phone) -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0">
+        <img src="https://img.icons8.com/ios-filled/30/ffffff/new-post.png" alt="Email Icon" class="me-2">
+        <span style="font-size: 1.2rem;">k.thalla@se23.qmul.ac.uk</span>
       </div>
-
-      <!-- Social Icons -->
-      <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
-        <a href="https://www.linkedin.com/in/kuladeep-thalla-54693218b/" class="social-btn"><img src="linkedin.png" alt="LinkedIn"></a>
-        <a href="https://x.com/ktg3107" class="social-btn"><img src="X.png" alt="Twitter"></a>
-        <a href="https://github.com/Kuladeep-97" class="social-btn"><img src="git hub.png" alt="GitHub"></a>
-        <a href="https://www.youtube.com/@KuladeepThalla" class="social-btn"><img src="Yt.png" alt="YouTube"></a>
-        <a href="https://www.kaggle.com/kuladeepthalla" class="social-btn"><img src="kaggle.png" alt="Kaggle"></a>
-      </div>
+       <div class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0" style="white-space: nowrap;">
+       <img src="https://img.icons8.com/ios-filled/30/ffffff/phone.png" alt="Phone Icon" class="me-2">
+       <span style="font-size: 1.2rem;">+44-7721826968 | +91-8971492482</span>
+     </div>
     </div>
-  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Social Media Icons -->
+    <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/kuladeep-thalla-54693218b/" class="social-btn" data-bs-toggle="tooltip" title="LinkedIn">
+        <img src="linkedin.png" alt="LinkedIn">
+      </a>
+      <!-- Twitter -->
+      <a href="https://x.com/ktg3107" class="social-btn" data-bs-toggle="tooltip" title="Twitter">
+        <img src="X.png" alt="X">
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/Kuladeep-97" class="social-btn" data-bs-toggle="tooltip" title="GitHub">
+        <img src="git hub.png" alt="GitHub">
+      </a>
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@KuladeepThalla" class="social-btn" data-bs-toggle="tooltip" title="YouTube">
+        <img src="Yt.png" alt="YouTube">
+      </a>
+    </div>
+  </div>
+      <!-- Kaggle -->
+      <a href="https://www.kaggle.com/kuladeepthalla" class="social-btn" data-bs-toggle="tooltip" title="kaggle">
+        <img src="kaggle.png" alt="kaggle">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Custom Styles -->
+<style>
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #ff4081; /* pink background */
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  .social-btn img {
+    width: 30px;
+    height: 30px;
+  }
+  .social-btn:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+  }
+</style>
+
+<!-- ✅ Bootstrap Tooltip Activation -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
